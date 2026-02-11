@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajike ❤️ Ayinde</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      max-width: 360px;
+      animation: pop 1s ease;
+    }
+
+    h1 {
+      color: #ff3366;
+      font-size: 28px;
+    }
+
+    p {
+      color: #555;
+      font-size: 16px;
+    }
+
+    button {
+      background: #ff3366;
+      border: none;
+      padding: 12px 28px;
+      margin: 10px;
+      border-radius: 30px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff3366;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card" id="card">
+  <h1>Ayinde ❤️</h1>
+  <p>
+    Every moment with you feels like love written by fate.  
+    You make my world softer, happier, and brighter.
+  </p>
+  <h2>Will you be my Valentine? 💘</h2>
+
+  <button onclick="sayYes()">Yes 💖</button>
+  <button onclick="sayYes()">Yes 😍</button>
+</div>
+
+<script>
+  function sayYes() {
+    document.getElementById("card").innerHTML = `
+      <h1>Yay!!! 🥰</h1>
+      <p>
+        You just made Ajike the happiest girl ever 💕  
+        I can’t wait to share love, laughter, and memories with you.
+      </p>
+      <h2>Forever yours ❤️</h2>
+    `;
+  }
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }
+
+  setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
